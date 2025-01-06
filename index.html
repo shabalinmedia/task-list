@@ -1,54 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
-    <title>Task List</title>
+    <title>Выбор случайной страны</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #result {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <div id="main" class="card">
-                    <div class="card-content">
-                        <span class="card-title">Task List</span>
-                        <div class="row">
-                            <form id="task-form">
-                                <div class="input-field col s12">
-                                    <input type="text" name="task" id="task">
-                                    <label for="task">New Task</label>
-                                </div>
-                                <input type="submit" value="Add Task" class="btn">
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card-action">
-                        <h5 id="task-title">Tasks</h5>
-                        <div class="input-field col s12">
-                            <input type="text" name="filter" id="filter">
-                            <label for="filter">Filter Tasks</label>
-                        </div>
-                        <ul class="collection"></ul>
-                        <a href="#" class="clear-tasks btn black">Clear Tasks</a>
+    <div id="result">&nbsp;</div>
+    <button onclick="chooseCountry()">Выбрать страну</button>
+    <footer>
+        &copy; Читальня
+    </footer>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        const countries = [
+            "Германия",
+            "Франция",
+            "Испания",
+            "Великобритания",
+            "Венгрия",
+            "Голландия",
+            "Швейцария",
+            "Чехия",
+            "Грузия",
+            "Австралия",
+            "Кыргызстан",
+            "Россия",
+            "Узбекистан",
+            "Норвегия",
+            "США",
+            "Япония",
+            "Китай",
+            "Аргентина"
+        ];
 
-
-
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="app.js"></script>
+        function chooseCountry() {
+            const randomIndex = Math.floor(Math.random() * countries.length);
+            document.getElementById('result').textContent = countries[randomIndex];
+        }
+    </script>
 </body>
 </html>
